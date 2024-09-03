@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Mail</h2>
+<p>Check for received files here.</p>
+<div class="list-group">
+    {% if received_files %}
+        {% for filename, sender_ip in received_files.items() %}
+            <a href="{{ url_for('download_file', filename=filename) }}" class="list-group-item list-group-item-action">
+                <h5>{{ filename }} (from {{ sender_ip }})</h5>
+            </a>
+        {% endfor %}
+    {% else %}
+        <p>No files received yet.</p>
+    {% endif %}
+</div>
+{% endblock %}
