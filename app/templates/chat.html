@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat Application</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Chat Application</h1>
+
+    <p>Welcome, {{ session.get('username') }}!</p>
+
+    <div id="chat-messages"></div>
+
+    <form id="message-form">
+        <input type="text" id="message" placeholder="Enter your message">
+        <button type="submit">Send</button>
+    </form>
+
+    <script src="{{ url_for('static', filename='js/client.js') }}"></script>
+</body>
+</html>
